@@ -49,7 +49,7 @@ all: Calculator.elf secondary-outputs
 Calculator.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,Calculator.map -mmcu=atmega8 -o "Calculator.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,Calculator.map -mmcu=atmega88p -o "Calculator.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -73,7 +73,7 @@ Calculator.eep: Calculator.elf
 
 sizedummy: Calculator.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega8 Calculator.elf
+	-avr-size --format=avr --mcu=atmega88p Calculator.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
